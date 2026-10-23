@@ -25,23 +25,6 @@
 
 ---
 
-## 📋 Table of Contents
-- [Executive Overview](#-executive-overview)
-- [Key Architectural Highlights](#-key-architectural-highlights)
-- [Demonstration & Lab Verification](#-demonstration--lab-verification)
-- [Hardware Architecture & Data Flow](#-hardware-architecture--data-flow)
-- [Hardware Interfacing & Pinout](#-hardware-interfacing--pinout)
-- [Detection Algorithms & Decision Logic](#-detection-algorithms--decision-logic)
-- [Firmware Implementation](#-firmware-implementation)
-- [Getting Started & Flashing Guide](#-getting-started--flashing-guide)
-- [Telemetry & Serial Monitor Output](#-telemetry--serial-monitor-output)
-- [Project Documentation & Presentations](#-project-documentation--presentations)
-- [Repository Structure](#-repository-structure)
-- [Project Team & Mentorship](#-project-team--mentorship)
-- [License & Acknowledgments](#-license--acknowledgments)
-
----
-
 ## 📌 Executive Overview
 
 **AWEN (Adaptive Wellness & Emotional Navigation)** is a high-performance, embedded biometric telemetry and anomaly detection platform powered by the **ESP32 microcontroller**. Designed as a multimodal hardware monitoring edge-device, AWEN continuously acquires synchronized physiological vitals (photoplethysmography heart rate, peripheral capillary oxygen saturation $SpO_2$, precision core body temperature) alongside kinematic motion signatures (6-DoF inertial acceleration).
