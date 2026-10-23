@@ -18,9 +18,12 @@
 
 ---
 
-## 📄 Project Documentation
-The complete 43-page hardware synopsis report is available in the [`docs/`](docs/) directory:
-- 📥 **[Download AWEN Hardware Synopsis Report (PDF)](docs/AWEN_Hardware_Synopsis.pdf)**
+## 📄 Project Documentation & Presentations
+
+All project documentation, report PDFs, and slide decks are organized in the [`docs/`](docs/) directory:
+- 📑 **Hardware Synopsis Report**: [AWEN Hardware Synopsis Report (PDF)](docs/AWEN_Hardware_Synopsis.pdf) *(Complete 43-page specification)*
+- 📊 **Hardware Architecture Presentation**: [AWEN Hardware Presentation (PPTX)](docs/presentations/AWEN_Hardware_Presentation_AF52.pptx)
+- 📊 **Final Project Presentation Deck**: [AWEN Final Presentation (PPTX)](docs/presentations/AWEN_Final_Presentation_AF52.pptx)
 
 ---
 
@@ -84,13 +87,16 @@ CaPsToNe_HaRdWaRe/
 ├── .gitignore
 ├── README.md
 ├── docs/
-│   └── AWEN_Hardware_Synopsis.pdf         # Complete Project Synopsis Report
+│   ├── AWEN_Hardware_Synopsis.pdf             # Complete Project Synopsis Report
+│   └── presentations/
+│       ├── AWEN_Final_Presentation_AF52.pptx   # Final Presentation Slide Deck
+│       └── AWEN_Hardware_Presentation_AF52.pptx# Hardware Architecture Presentation
 ├── media/
-│   ├── AWEN_Team_GeoTagged.jpeg           # Geo-tagged Team Photo (Mechanics Lab)
-│   ├── AWEN_Team_Prototype_Photo.jpeg     # Team & Prototype Hardware Photo
-│   └── AWEN_Hardware_Demo_Video.mp4       # Prototype Working Video
+│   ├── AWEN_Team_GeoTagged.jpeg               # Geo-tagged Team Photo (Mechanics Lab)
+│   ├── AWEN_Team_Prototype_Photo.jpeg         # Team & Prototype Hardware Photo
+│   └── AWEN_Hardware_Demo_Video.mp4           # Prototype Working Video
 └── esp32_health_monitor/
-    └── esp32_health_monitor.ino           # ESP32 Arduino Firmware
+    └── esp32_health_monitor.ino               # ESP32 Arduino Firmware
 ```
 
 ---
