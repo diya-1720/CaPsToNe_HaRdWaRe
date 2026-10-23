@@ -1,68 +1,91 @@
-﻿# CaPsToNe_HaRdWaRe - ESP32 Smart Health Monitoring System
+# AWEN: Adaptive Wellness & Emotional Navigation (Hardware)
 
-An IoT-based patient vital signs and health monitoring system built using the **ESP32 microcontroller**. It measures heart rate (BPM), blood oxygen saturation (SpO2), body temperature, and physical motion in real time, displays live metrics on an SSD1306 OLED screen, and triggers an alarm when health anomalies (such as resting tachycardia) are detected.
-
----
-
-## 📌 Features
-
-- **Heart Rate & Pulse Oximetry (SpO2)**: Measured via the **MAX30100** optical pulse oximeter sensor.
-- **Body Temperature**: Continuous analog reading via the **LM35** temperature sensor.
-- **Motion & Activity Tracking**: Real-time 3-axis acceleration tracking with **MPU6050** to distinguish resting states from active movement.
-- **Intelligent Anomaly Detection**:
-  - Detects resting tachycardia (High BPM > 105 when resting/not moving and valid SpO2 > 80%).
-  - Sounds a buzzer alert to notify of potential abnormalities.
-- **OLED Dashboard**: Live status display on a 128x64 I2C SSD1306 screen showing:
-  - BPM Box & Pulse heart-beat indicator
-  - SpO2 Level & Sensor lock indicator
-  - Temperature (°C)
-  - Motion / Acceleration magnitude (g)
-  - System status (OK vs ALT)
+> **ESP32-Based Health Monitoring System with Physiological and Behavioural Patterns**  
+> *Capstone Project (AF 52) – Department of Computer Science & Engineering (Data Science)*  
+> *St. John College of Engineering and Management (SJCEM), University of Mumbai*
 
 ---
 
-## 🛠️ Hardware Requirements & Pinout
+## 📄 Project Documentation
+The complete 43-page hardware synopsis report is available in the [`docs/`](docs/) directory:
+- 📥 **[Download AWEN Hardware Synopsis Report (PDF)](docs/AWEN_Hardware_Synopsis.pdf)**
 
-| Component | Pin / Interface | ESP32 Pin | Description |
+---
+
+## 📌 Overview
+
+**AWEN (Adaptive Wellness & Emotional Navigation)** is an integrated embedded monitoring and data-handling system developed around the **ESP32 microcontroller**. It captures multi-channel physiological and kinematic signals in real time, provides autonomous on-device visual and acoustic feedback, and streams telemetry via a USB-UART serial pipeline for desktop visualization and local persistence.
+
+### Key Capabilities
+- **Heart Rate (BPM) & Blood Oxygen Saturation (SpO2)**: Real-time photoplethysmography (PPG) via the **MAX30100** optical sensor.
+- **Precision Body Temperature**: Linear analog temperature measurement using the **LM35** sensor with multi-sample filtering.
+- **Kinematic Motion Tracking**: 6-axis acceleration and angular velocity tracking via the **MPU6050** to distinguish resting states from active physical motion.
+- **Autonomous Anomaly Alerting**: Intelligent resting tachycardia detection (High BPM when motionless) triggering an active **piezo buzzer** alarm.
+- **On-Device Graphical Dashboard**: High-contrast real-time display on a 0.96" **SSD1306 OLED** (128x64) showing BPM, SpO2, Temperature, Motion, and alert status without requiring a PC connection.
+
+---
+
+## 🛠️ Hardware Interfacing & Pinout
+
+| Module / Sensor | Bus / Signal Type | ESP32 Pin | Description |
 | :--- | :--- | :--- | :--- |
-| **I2C Bus (Shared)** | SDA | **GPIO 18** | Data line for MAX30100, MPU6050 & OLED |
-| **I2C Bus (Shared)** | SCL | **GPIO 19** | Clock line for MAX30100, MPU6050 & OLED |
-| **LM35 Temperature Sensor** | VOUT (Analog) | **GPIO 34** | ADC1 input (12-bit resolution) |
-| **Buzzer** | Signal / Positive | **GPIO 25** | Digital output for alarm alert |
-| **Power Supply** | VCC / GND | **3.3V / 5V & GND** | Standard power rails |
+| **I2C Bus (Shared)** | SDA (Data) | **GPIO 18 / 21** | Shared I2C data line (MAX30100 `0x57`, MPU6050 `0x68`, OLED `0x3C`) |
+| **I2C Bus (Shared)** | SCL (Clock) | **GPIO 19 / 22** | Shared I2C clock line (400 kHz Fast-Mode with 4.7 kΩ pull-ups) |
+| **LM35 Temp Sensor** | Analog Voltage | **GPIO 36 / 34** | ADC1 input (10.0 mV/°C linear scale with 0.1 µF bypass) |
+| **Active Buzzer** | Digital Output | **GPIO 25** | Acoustic alert signal via 100 Ω current-limiting resistor |
+| **Power Supply** | Dual Rail | **3.3V & 5V / VIN**| 3.3V for digital sensor ICs/OLED; 5V for LM35 & Buzzer |
 
 ---
 
 ## 📦 Required Arduino Libraries
 
-Ensure the following libraries are installed via Arduino IDE Library Manager:
-1. **Adafruit SSD1306** (by Adafruit)
-2. **Adafruit GFX Library** (by Adafruit)
+Ensure the following libraries are installed in Arduino IDE (**Sketch > Include Library > Manage Libraries...**):
+1. **Adafruit SSD1306**
+2. **Adafruit GFX Library**
 3. **MAX30100lib** (by OXullo Intervent / PulseOximeter)
-4. **Wire** (built-in ESP32 core)
+4. **Wire** (Standard ESP32 Core)
 
 ---
 
 ## 🚀 Getting Started
 
-1. Clone this repository:
-   `ash
+1. **Clone the Repository**:
+   ```bash
    git clone https://github.com/diya-1720/CaPsToNe_HaRdWaRe.git
-   `
-2. Open esp32_health_monitor/esp32_health_monitor.ino in Arduino IDE.
-3. Select your ESP32 board (e.g., **ESP32 Dev Module**) from **Tools > Board**.
-4. Set upload speed and select the corresponding COM port.
-5. Compile and upload the sketch to your ESP32.
-6. Open Serial Monitor at **115200 baud** to view real-time diagnostics.
+   ```
+2. **Open the Firmware**:
+   Open [`esp32_health_monitor/esp32_health_monitor.ino`](esp32_health_monitor/esp32_health_monitor.ino) in Arduino IDE.
+3. **Configure Board**:
+   - Board: **ESP32 Dev Module**
+   - Upload Speed: **921600** (or **115200**)
+   - Select the connected COM port.
+4. **Upload & Monitor**:
+   - Compile and flash the sketch.
+   - Open Serial Monitor at **115200 baud** for live telemetry logs.
 
 ---
 
-## 📂 Project Structure
+## 📂 Repository Structure
 
-`	ext
+```text
 CaPsToNe_HaRdWaRe/
-├── README.md
 ├── .gitignore
+├── README.md
+├── docs/
+│   └── AWEN_Hardware_Synopsis.pdf     # Complete Project Synopsis Report
 └── esp32_health_monitor/
-    └── esp32_health_monitor.ino
-`
+    └── esp32_health_monitor.ino       # ESP32 Arduino Firmware
+```
+
+---
+
+## 👥 Project Team & Mentorship
+
+- **Diya Singh** (EU1258014) – *Hardware Architecture Lead & Circuit Assembly*
+- **Parth Topale** (EU1258058) – *Firmware Drivers & Peripheral Control Lead*
+- **Nishtha Lokhande** (EU1258019) – *Electrical Verification & Probing Lead*
+- **Swara Patil** (EU1258011) – *BOM Management & Technical Documentation Lead*
+
+**Project Guide**: **Prof. Sachin Sase**  
+*Assistant Professor, Department of Computer Science & Engineering (Data Science)*  
+*St. John College of Engineering and Management (SJCEM), Palghar*
