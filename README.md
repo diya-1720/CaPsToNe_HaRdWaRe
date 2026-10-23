@@ -6,6 +6,18 @@
 
 ---
 
+## 📸 Project Demonstration & Media
+
+| Team & Prototype Demonstration | Geo-Tagged Lab Verification |
+| :---: | :---: |
+| ![AWEN Prototype Demonstration](media/AWEN_Team_Prototype_Photo.jpeg) | ![AWEN Geo-Tagged Lab Photo](media/AWEN_Team_GeoTagged.jpeg) |
+| *Team with the ESP32 Hardware Prototype & Live Dashboard* | *Mechanics Lab & Workshop, SJCEM, Palghar (Lat 19.705832°, Long 72.783815°)* |
+
+### 🎥 Working Prototype Demo Video
+- 📹 **[Watch AWEN Hardware Working Demo Video (MP4)](media/AWEN_Hardware_Demo_Video.mp4)**
+
+---
+
 ## 📄 Project Documentation
 The complete 43-page hardware synopsis report is available in the [`docs/`](docs/) directory:
 - 📥 **[Download AWEN Hardware Synopsis Report (PDF)](docs/AWEN_Hardware_Synopsis.pdf)**
@@ -72,9 +84,13 @@ CaPsToNe_HaRdWaRe/
 ├── .gitignore
 ├── README.md
 ├── docs/
-│   └── AWEN_Hardware_Synopsis.pdf     # Complete Project Synopsis Report
+│   └── AWEN_Hardware_Synopsis.pdf         # Complete Project Synopsis Report
+├── media/
+│   ├── AWEN_Team_GeoTagged.jpeg           # Geo-tagged Team Photo (Mechanics Lab)
+│   ├── AWEN_Team_Prototype_Photo.jpeg     # Team & Prototype Hardware Photo
+│   └── AWEN_Hardware_Demo_Video.mp4       # Prototype Working Video
 └── esp32_health_monitor/
-    └── esp32_health_monitor.ino       # ESP32 Arduino Firmware
+    └── esp32_health_monitor.ino           # ESP32 Arduino Firmware
 ```
 
 ---
